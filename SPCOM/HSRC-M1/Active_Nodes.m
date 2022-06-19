@@ -1,11 +1,10 @@
-% Active Nodes generation
+% Nodes generation
 
-function temp = Active_Nodes(N,q,temp)
-    %A=[];
-    for i=1:N
-        if (random('bino',1,q)) %Bern(q)
-            %A = union(A,i);
-            value = Hash(i,N)+1;
-            temp(value) = temp(value)+1;
+function [x_pos, y_pos, active] = Active_Nodes(T, N, q, active)
+    for j=1:T
+        for i=1:N
+            if (random('bino',1,q))
+                active(j, i) = active(j, i) + 1; % Node is marked as active
+            end
         end
     end
